@@ -55,5 +55,6 @@ jobs:
             --cluster ${{ secrets.CLUSTER_NAME }} \
             --service ${{ secrets.SERVICE_NAME }} \
             --task-definition $TASK_DEF_ARN
+            --desired-count 1
 
 
