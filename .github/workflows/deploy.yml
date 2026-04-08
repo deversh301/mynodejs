@@ -34,7 +34,7 @@ jobs:
         env:
           IMAGE: ${{ secrets.ECR_REPOSITORY }}:${{ github.sha }}
         run: |
-          sed "s|IMAGE_URI|${IMAGE}|g" task-def.json > new-task-def.json
+          jq --arg IMAGE "$IMAGE" '.containerDefinitions[0].image = $IMAGE' task-def.json > new-task-def.json
 
       - name: Register Task Definition
         run: |
