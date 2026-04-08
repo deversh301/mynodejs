@@ -9,6 +9,7 @@ jobs:
 deploy:
 runs-on: ubuntu-latest
 
+```
 steps:
   - name: Checkout code
     uses: actions/checkout@v3
@@ -35,3 +36,4 @@ steps:
         --cluster ${{ secrets.CLUSTER_NAME }} \
         --service ${{ secrets.SERVICE_NAME }} \
         --force-new-deployment
+```
