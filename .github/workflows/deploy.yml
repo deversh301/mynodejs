@@ -30,6 +30,10 @@ jobs:
           docker build -t $IMAGE .
           docker push $IMAGE
 
+      - name: Install jq
+        run: |
+          sudo apt-get update && sudo apt-get install -y jq
+
       - name: Update Task Definition
         env:
           IMAGE: ${{ secrets.ECR_REPOSITORY }}:${{ github.sha }}
